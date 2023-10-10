@@ -1,5 +1,4 @@
-const dotenv = require('key.env');
-dotenv.config();
+
 
 const apiKey = process.env.API_KEY;
 const stateCode = ''; 
@@ -22,8 +21,6 @@ function getGeographicData(cityName, stateCode, countryCode, apiKey) {
         });
 }
 
-
-
 function getWeatherData(latitude, longitude, apiKey) {
     const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
@@ -42,7 +39,6 @@ function getWeatherData(latitude, longitude, apiKey) {
 
 const cityInput = document.getElementById('cityInput');
 const searchButton = document.getElementById('searchButton');
-
 
 searchButton.addEventListener('click', () => {
     const userCity = cityInput.value; 
