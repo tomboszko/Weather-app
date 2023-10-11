@@ -29,8 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Show the weather data in console
             .then((weatherResponse) => {
                 console.log('Météo data:', weatherResponse);
-                const temperature = weatherResponse.list[0].main.temp;
+
                 const city = capitalizedCity;
+                const temperature = weatherResponse.list[0].main.temp;
                 const description = weatherResponse.list[0].weather[0].description;
                 const icon = weatherResponse.list[0].weather[0].icon;
 
@@ -52,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event handler for clicking on the city name
     cityElement.addEventListener('click', () => {
         // Allow the user to edit the city name
-        const newCity = prompt('Enter a new city:');
+        const newCity = prompt('Enter a city:');
         if (newCity !== null) {
             searchWeatherForCity(newCity); // Update the weather data for the new city
         }

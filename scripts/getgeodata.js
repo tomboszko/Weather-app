@@ -1,5 +1,4 @@
 
-
 // get lat/long from city name
 
 const apiKey = env.apiKey; // big bordel with that !!! must fix it
