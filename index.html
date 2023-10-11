@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script module src="scripts\getgeodata.js"></script>
+    <script module src="scripts\getweather.js"></script>
+    <script module src="scripts\main.js"></script>
+    <script module src="scripts\forecasts.js"></script>
+    
+    
+    <title>Weather App</title>
+</head>
+<body>
+
+    <div id="weatherDataBox">
+        <h1 id="temperature"></h1>
+        <p id="description"></p>
+        <img id="icon" src="" alt="">
+    </div>
+
+    <div id="forecastBox">
+        <ul id="forecastList"></ul>
+    </div>
+
+    <div id="cityBox">
+         <h1 id="city" style="cursor: pointer;">Click to choose city</h1>
+    </div>
+
+</body>
+</html>
