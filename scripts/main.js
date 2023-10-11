@@ -1,12 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cityElement = document.getElementById('city');
-    const forecastList = document.getElementById('forecastList');
-
+    
     // Function to get weather data for a specified city
     function searchWeatherForCity(userCity) {
-        const capitalizedCity = userCity.charAt(0).toUpperCase() + userCity.slice(1); // more elegant to capitalize first letter ;)
+        const capitalizedCity = userCity.charAt(0).toUpperCase() + userCity.slice(1); // Capitalize first letter
+        
+        if (!capitalizedCity) {
+            alert('Please enter a city name.');
+            return;
+        }
 
-        // search for the geo data from city
+        // Search for the geo data from the city
         getGeographicData(capitalizedCity, stateCode, countryCode, apiKey)
             .then((geoResponse) => {
                 if (geoResponse.length > 0) {
@@ -17,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert('City not found!');
                 }
             })
-            // show the weather data in console
+            // Show the weather data in console
             .then((weatherResponse) => {
                 console.log('Météo data:', weatherResponse);
                 const temperature = weatherResponse.list[0].main.temp;
@@ -32,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelector('#icon').src = `https://openweathermap.org/img/wn/${icon}.png`;
                 document.querySelector('#temperature').textContent = `${temperature}°`;
 
-                // Update local storage with last city
+                // Update local storage with the last city
                 localStorage.setItem('lastCity', capitalizedCity);
             })
             .catch((error) => {
@@ -44,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
     cityElement.addEventListener('click', () => {
         // Allow the user to edit the city name
         const newCity = prompt('Enter a new city:');
-        if (newCity) {
-            searchWeatherForCity(newCity); //update the weather data for the new city
+        if (newCity !== null) {
+            searchWeatherForCity(newCity); // Update the weather data for the new city
         }
     });
 
