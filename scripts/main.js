@@ -57,10 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const lastCity = localStorage.getItem('lastCity');
 
     if (lastCity) {
-        // Display the last city in the element
-        cityElement.textContent = lastCity;
 
-        // Execute a weather search for the last chosen city
+        // Display the last city
+        cityElement.textContent = lastCity;
+        
         searchWeatherForCity(lastCity);
     }
 });
