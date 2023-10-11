@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script module src="geoData.js"></script>
-    <script module src="scripts\dotenv.js"></script>
+    
+    <script module src="scripts\getgeodata.js"></script>
+    <script module src="scripts\getweather.js"></script>
+    <script module src="scripts\main.js"></script>
+    <script module src="scripts\forecasts.js"></script>
+    
     
     <title>Weather App</title>
 </head>
@@ -12,14 +16,19 @@
 
     <div id="weather-data">
         <h1 id="city"></h1>
-        
         <p id="description"></p>
         <img id="icon" src="" alt="">
         <p id="temperature"></p>
+    </div>
+
+    <div id="forecast">
+        <ul id="forecastList"></ul>
+    </div>
+    
+    <div id="entry">
         <input id="cityInput" type="text" placeholder="Enter city">
         <button id="searchButton">Go</button>
     </div>
-    
     
 </body>
 </html>
