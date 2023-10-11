@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const cityElement = document.getElementById('city');
-    
+
     // Function to get weather data for a specified city
     function searchWeatherForCity(userCity) {
 
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Please enter a city name.');
             return;
         }
-    
+
         const capitalizedCity = trimmedCity.charAt(0).toUpperCase() + trimmedCity.slice(1);
 
         // Search for the geo data from the city
