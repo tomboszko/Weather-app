@@ -1,6 +1,7 @@
 
+// get lat/long from city name
 
-const apiKey = 'ef2f9bb0b6bea146779fdc9e846c7a4b';
+const apiKey ='ef2f9bb0b6bea146779fdc9e846c7a4b';
 const stateCode = ''; 
 const countryCode = ''; 
 const limit = 1;
