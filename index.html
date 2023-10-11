@@ -7,7 +7,9 @@
     <script module src="scripts\getgeodata.js"></script>
     <script module src="scripts\getweather.js"></script>
     <script module src="scripts\main.js"></script>
+    <script module src="scripts/time.js"></script>
     <script module src="scripts\forecasts.js"></script>
+
     <link rel="stylesheet" href="style.css">
     
     <title>Weather App</title>
@@ -16,10 +18,16 @@
 
 <div id="mainBox">
 
+    <div id="timeBox">
+        <h1 id="time"></h1>
+        <h1 id="date"></h1>
+    </div>
+
     <div id="weatherDataBox">
         <h1 id="temperature"></h1>
-        <p id="description"></p>
-        <img id="icon" src="" alt="">
+        <span id="description"></span><img id="icon" src="" alt="">
+
+        
     </div>
 
     <div id="forecastBox">

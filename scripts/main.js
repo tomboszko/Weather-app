@@ -31,9 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Météo data:', weatherResponse);
 
                 const city = capitalizedCity;
-                const temperature = weatherResponse.list[0].main.temp;
+                const temperature = weatherResponse.list[1+3].main.temp;
                 const description = weatherResponse.list[0].weather[0].description;
                 const icon = weatherResponse.list[0].weather[0].icon;
+                
 
                 // Update the city element with the new city name
                 cityElement.textContent = city;

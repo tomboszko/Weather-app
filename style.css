@@ -1,9 +1,7 @@
 body {
 width: 100vw;
 height: 100vh;
-    background: rgb(0,151,255);
-    background: linear-gradient(0deg, rgba(0,151,255,1) 0%, rgb(118, 213, 250) 100%);
-background-repeat: no-repeat;
+background-image: url("assets/background.jpg");
 
 }
 
@@ -13,7 +11,10 @@ background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    padding-top: 0rem;
     background: rgba(255, 255, 255, 0.404);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 3.5px );
@@ -22,60 +23,127 @@ background-repeat: no-repeat;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
-#weatherDataBox {
-    width: 330px;
-    height: 180px;
-    margin-top: 1rem;
+#timeBox {
+
+    width: 20rem;
+    height: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     margin-left: auto;
     margin-right: auto;
+    margin-top: 1rem;
+    align-items: center;
+    background: rgba(6, 124, 235, 0.295);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3.5px );
+    -webkit-backdrop-filter: blur( 3.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    #date {
+        font-size: 2rem;
+        font-weight: bold;
+        font-family: 'Roboto', sans-serif;
+        color: rgba(255, 255, 255, 0.568);
+        
+        text-align: center;
+        height: 30px;
+        position: fixed;
+        margin-top: 1rem;
+        right: 1rem;
+        text-shadow: 0px 0px 0 rgb(199,229,242),
+                 1px 1px 0 rgb(185,215,228),
+                 2px 2px  0 rgb(172,202,215),
+                 3px 3px 2px rgba(255,229,254,0.6),
+                 3px 3px 1px rgba(255,229,254,0.5),
+                 0px 0px 2px rgba(255,229,254,.2);
+
+    }
+
+    #time {
+        font-size: 2rem;
+        font-weight: bold;
+        font-family: 'Roboto', sans-serif;
+        color: rgba(255, 255, 255, 0.568);
+        
+        text-align: center;
+        height: 30px;
+        position: fixed;
+        margin-top: 1rem;
+        left: 1rem;
+        text-shadow: 0px 0px 0 rgb(199,229,242),
+                 1px 1px 0 rgb(185,215,228),
+                 2px 2px  0 rgb(172,202,215),
+                 3px 3px 2px rgba(255,229,254,0.6),
+                 3px 3px 1px rgba(255,229,254,0.5),
+                 0px 0px 2px rgba(255,229,254,.2);
+}
+
+}
+
+#weatherDataBox {
+    width: 20rem;
+    height: 7rem;
     
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
         
    
     #temperature {
-        font-size: 3.5rem;
+        font-size: 6.5rem;
+        line-height: 6.5rem;
         font-weight: bold;
         font-family: 'Roboto', sans-serif;
-        color: white;
-        grid-area: 1 / 1 / 2 / 2;
-        margin-left: 1rem;
-        margin-bottom: 0;
-        text-shadow: 2px 2px 4px #00000079;
+        color: rgba(255, 255, 255, 0.459);
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+        text-shadow: 0px 0px 0 rgb(199,229,242),
+                 1px 1px 0 rgb(185,215,228),
+                 2px 2px  0 rgb(172,202,215),
+                 3px 3px 2px rgba(255,229,254,0.6),
+                 3px 3px 1px rgba(255,229,254,0.5),
+                 0px 0px 2px rgba(255,229,254,.2);
+        
+        
     }
 
     #description {
-        font-size: 1rem;
+        display: none;
+        position: fixed;
+        top:4rem;
+        left:8.5rem;
+        font-size: 0.5rem;
         font-weight: bold;
         font-family: 'Roboto', sans-serif;
-        color: rgba(155, 149, 149, 0.719);
-        grid-area: 2 / 1 / 3 / 2;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 0;
-        text-align: center;
-        text-shadow: 1px 1px 2px #00000052;
+        color: rgba(8, 52, 117, 0.336);
+        text-align: start;
+        
+        
     }
 
     #icon {
-        width: 150px;
-        height: 150px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        grid-area: 1 / 2 / 3 / 3;
+
+        width: 60px;
+        height: 60px;
+        position: fixed;
+        top: 1.1rem;
+        left: 8.6rem;
+        
+        
     }
 
 }
 
 #cityBox {
 
-    width: 330px;
-    height: 50px;
+    width: 10rem;
+    height: 2rem;
     z-index: 1;
     display: flex;
     justify-content: center;
@@ -84,7 +152,7 @@ background-repeat: no-repeat;
     margin-right: auto;
     margin-bottom: 1rem;
     text-align: center;
-    background: rgba(6, 124, 235, 0.2);
+    background: rgba(6, 86, 235, 0.432);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 3.5px );
     -webkit-backdrop-filter: blur( 3.5px );
@@ -95,23 +163,25 @@ background-repeat: no-repeat;
         font-size: 1.5rem;
         font-weight: bold;
         font-family: 'Roboto', sans-serif;
-        color: white;
-        text-shadow: 2px 2px 4px #00000079;
+        color: rgba(255, 255, 255, 0.425);
+        text-shadow: 0px 0px 0 rgb(199,229,242),
+                 1px 1px 0 rgb(185,215,228),
+                 2px 2px  0 rgb(172,202,215),
+                 3px 3px 2px rgba(144, 145, 163, 0.6),
+                 3px 3px 1px rgba(153, 163, 190, 0.5),
+                 0px 0px 2px rgba(255,229,254,.2);
+        
     
     }
 }
 
 #forecastBox {
 
-    width: 330px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    width: 20rem;
+    height: 15rem;
     margin-left: auto;
     margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    background: rgb(2, 126, 243);
+    margin-bottom: 1rem;
+    background: rgba(2, 126, 243, 0);
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
