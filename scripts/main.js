@@ -25,17 +25,47 @@ document.addEventListener('DOMContentLoaded', async () => {
                 console.log('Météo data:', weatherResponse);
 
                 const city = capitalizedCity;
-                const temperature = weatherResponse.list[0].main.temp; // I will see tomorow if I implement forecasts
+                const temperature = weatherResponse.list[0].main.temp; 
                 const description = weatherResponse.list[0].weather[0].description;
                 const icon = weatherResponse.list[0].weather[0].icon;
 
-                // Update the city element with the new city name
+                                const temperatureForecast = []; // array to store the forecast temperatures
+
+                    // iteration to get the forecast temperatures
+                    // ...
+for (let i = 0; i < weatherResponse.list.length && i < 5 * 8; i += 8) {
+    const temp = weatherResponse.list[i].main.temp;
+    const icon = weatherResponse.list[i].weather[0].icon;
+
+    temperatureForecast.push({temp,icon});
+}
+// ...
+
+// update the forecast list
+const forecastList = document.getElementById('forecastList');
+forecastList.innerHTML = '';
+
+// create a list item for each forecast temperature
+temperatureForecast.forEach((item) => {
+    const listItem = document.createElement('li');
+    const iconImg = document.createElement('img');
+    iconImg.src = `https://openweathermap.org/img/wn/${item.icon}.png`;
+    iconImg.alt = 'Weather Icon';
+    listItem.textContent = `${item.temp}°`; // here to add the day name
+
+    listItem.appendChild(iconImg);
+    forecastList.appendChild(listItem);
+});
+
+
+            {
+ // Update the city element with the new city name
                 cityElement.textContent = city;
 
                 document.querySelector('#description').textContent = description;
                 document.querySelector('#icon').src = `https://openweathermap.org/img/wn/${icon}.png`;
                 document.querySelector('#temperature').textContent = `${temperature}°`;
-
+    }
                 // Update local storage with the last city
                 localStorage.setItem('lastCity', capitalizedCity);
             } else {
