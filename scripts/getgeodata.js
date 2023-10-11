@@ -1,7 +1,8 @@
 
+
 // get lat/long from city name
 
-const apiKey ='ef2f9bb0b6bea146779fdc9e846c7a4b';
+const apiKey = env.apiKey; // big bordel with that !!! must fix it
 const stateCode = ''; 
 const countryCode = ''; 
 const limit = 1;
@@ -23,3 +24,4 @@ function getGeographicData(cityName, stateCode, countryCode, apiKey) {
 
         
 }
+

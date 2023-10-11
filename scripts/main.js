@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const cityElement = document.getElementById('city');
     
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Display the last city
         cityElement.textContent = lastCity;
-        
+
         searchWeatherForCity(lastCity);
     }
 });
