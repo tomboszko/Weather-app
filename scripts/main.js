@@ -1,13 +1,11 @@
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const cityElement = document.getElementById('city');
 
     // Function to get weather data for a specified city
-    function searchWeatherForCity(userCity) {
-
-        // delete spaces
+    async function searchWeatherForCity(userCity) {
+        // Delete spaces
         const trimmedCity = userCity.trim();
-        //check if no blank string
+        // Check if no blank string
         if (trimmedCity === "") {
             alert('Please enter a city name.');
             return;
@@ -15,26 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const capitalizedCity = trimmedCity.charAt(0).toUpperCase() + trimmedCity.slice(1);
 
-        // Search for the geo data from the city
-        getGeographicData(capitalizedCity, stateCode, countryCode, apiKey)
-            .then((geoResponse) => {
-                if (geoResponse.length > 0) {
-                    const latitude = geoResponse[0].lat;
-                    const longitude = geoResponse[0].lon;
-                    return getWeatherData(latitude, longitude, apiKey);
-                } else {
-                    alert('City not found!');
-                }
-            })
-            // Show the weather data in console
-            .then((weatherResponse) => {
+        try {
+            // Search for the geo data from the city
+            const geoResponse = await getGeographicData(capitalizedCity, stateCode, countryCode, apiKey);
+
+            if (geoResponse.length > 0) {
+                const latitude = geoResponse[0].lat;
+                const longitude = geoResponse[0].lon;
+                const weatherResponse = await getWeatherData(latitude, longitude, apiKey);
+
                 console.log('Météo data:', weatherResponse);
 
                 const city = capitalizedCity;
-                const temperature = weatherResponse.list[1+3].main.temp;
+                const temperature = weatherResponse.list[0].main.temp; // I will see tomorow if I implement forecasts
                 const description = weatherResponse.list[0].weather[0].description;
                 const icon = weatherResponse.list[0].weather[0].icon;
-                
 
                 // Update the city element with the new city name
                 cityElement.textContent = city;
@@ -45,10 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Update local storage with the last city
                 localStorage.setItem('lastCity', capitalizedCity);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+            } else {
+                alert('City not found!');
+            }
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     // Event handler for clicking on the city name
@@ -64,10 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const lastCity = localStorage.getItem('lastCity');
 
     if (lastCity) {
-
-        // Display the last city
         cityElement.textContent = lastCity;
 
-        searchWeatherForCity(lastCity);
+        await searchWeatherForCity(lastCity);
     }
 });
