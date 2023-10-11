@@ -4,12 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Function to get weather data for a specified city
     function searchWeatherForCity(userCity) {
-        const capitalizedCity = userCity.charAt(0).toUpperCase() + userCity.slice(1); // Capitalize first letter
-        
-        if (!capitalizedCity) {
+
+        // delete spaces
+        const trimmedCity = userCity.trim();
+        //check if no blank string
+        if (trimmedCity === "") {
             alert('Please enter a city name.');
             return;
         }
+    
+        const capitalizedCity = trimmedCity.charAt(0).toUpperCase() + trimmedCity.slice(1);
 
         // Search for the geo data from the city
         getGeographicData(capitalizedCity, stateCode, countryCode, apiKey)
