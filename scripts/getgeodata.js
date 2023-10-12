@@ -1,14 +1,10 @@
 
-// get lat/long from city name
 
-
-
-
-const apiKey = 'ef2f9bb0b6bea146779fdc9e846c7a4b'; // big bordel with that !!! must fix it
+const apiKey ='f2f9bb0b6bea146779fdc9e846c7a4b'; // big bordel with that !!! must fix it
 const stateCode = ''; 
 const countryCode = ''; 
 const limit = 1;
-
+// get lat/long from city name
 
 function getGeographicData(cityName, stateCode, countryCode, apiKey) {// put the link between backticks, it'more readable
     let geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName},${stateCode},${countryCode}&limit=${limit}&appid=${apiKey}`;
