@@ -34,3 +34,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const formattedDateToDisplay = getCurrentDate();
     displayDate(formattedDateToDisplay);
 });
+
+
+function getCurrentDay() {
+    const today = new Date();
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayOfWeek = daysOfWeek[today.getUTCDay()];
+    
+    return dayOfWeek;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    function displayDay(day) {
+        const dayElement = document.getElementById('dayOfWeek');
+        dayElement.textContent = day;
+    }
+
+    const dayToDisplay = getCurrentDay();
+    displayDay(dayToDisplay);
+});

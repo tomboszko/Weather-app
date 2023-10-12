@@ -32,27 +32,36 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 const temperatureForecast = []; // array to store the forecast temperatures
 
                     // iteration to get the forecast temperatures
-                    // ...
 for (let i = 0; i < weatherResponse.list.length && i < 5 * 8; i += 8) {
     const temp = weatherResponse.list[i].main.temp;
     const icon = weatherResponse.list[i].weather[0].icon;
+    const timestamp = weatherResponse.list[i].dt * 1000; // Convert to milliseconds
 
-    temperatureForecast.push({temp,icon});
+    // Create a Date object from the timestamp
+    const date = new Date(timestamp);
+
+    // Get the name of the day (e.g., "Monday")
+    const options = { weekday: 'long' };
+    const dayName = new Intl.DateTimeFormat('en-US', options).format(date);
+
+    temperatureForecast.push({ temp, icon, day: dayName });
 }
-// ...
 
-// update the forecast list
+// Update the forecast list
 const forecastList = document.getElementById('forecastList');
 forecastList.innerHTML = '';
 
-// create a list item for each forecast temperature
+// Create a list item for each forecast temperature
 temperatureForecast.forEach((item) => {
     const listItem = document.createElement('li');
+    const forecastDay = document.createElement('li');
     const iconImg = document.createElement('img');
     iconImg.src = `https://openweathermap.org/img/wn/${item.icon}.png`;
     iconImg.alt = 'Weather Icon';
-    listItem.textContent = `${item.temp}°`; // here to add the day name
 
+    // Display the day name, temperature, and icon
+    listItem.textContent = `${item.day} ${item.temp}°`;
+    listItem.appendChild(forecastDay);
     listItem.appendChild(iconImg);
     forecastList.appendChild(listItem);
 });

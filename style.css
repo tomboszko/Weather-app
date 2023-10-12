@@ -42,18 +42,29 @@ background-image: url("assets/background.jpg");
     box-shadow: 3px 3px 6px 0px rgba(215,221,247,0.8) inset;
 
     #date {
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: bold;
         font-family: 'Roboto', sans-serif;
         color: rgba(9, 11, 90, 0.336);
         
         text-align: center;
-        height: 30px;
+        height: 1rem;
         position: fixed;
+        margin-bottom: 0%;
+        margin-top: 1rem;
         right: 1rem;
-        padding-top: 0.25rem;
-        
+    }
 
+    #dayOfWeek{
+        font-size: 1rem;
+        font-weight: bold;
+        font-family: 'Roboto', sans-serif;
+        color: rgba(9, 11, 90, 0.336);
+        text-align: center;
+        height: 1rem;
+        position: fixed;
+        margin-top: 0;
+        right: 1rem;
     }
 
     #time {
@@ -160,6 +171,8 @@ ul {
        img {
         width: 2.5rem;
         height: 2.5rem;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     li {
@@ -169,6 +182,10 @@ ul {
         flex-direction: column;
         margin-left: auto;
         margin-right: auto;
+        border-right: dashed;
+        border-left: dashed;
+        border-width: 1px;
+        border-color: rgba(255, 255, 255, 0.534);
 
     }
         
@@ -211,20 +228,18 @@ ul {
 #forecastBox {
 
     width: 20rem;
-    height: 4rem;
+    height: 5rem;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1rem;
     border-radius: 10px;
-    background: rgba(2, 126, 243, 0);
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    box-shadow: 3px 3px 6px 0px rgba(215,221,247,0.8) inset;
+    
 }
 
 #chartBox {
 
     width: 20rem;
-    height: 20rem;
+    height: 10rem;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1rem;
